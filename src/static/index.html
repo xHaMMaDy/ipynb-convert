@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPYNB to PY Converter</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">IPYNB<span>2PY</span></div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div id="alert-container"></div>
+        
+        <div id="main-content" class="main-content">
+            <div class="upload-options-section">
+                <div class="card">
+                    <h2 class="card-title">Upload Jupyter Notebook</h2>
+                    
+                    <div id="upload-area" class="upload-area">
+                        <i class="fas fa-file-upload upload-icon"></i>
+                        <p class="upload-text">Drag & drop your .ipynb file here</p>
+                        <p class="upload-subtext">or click to browse files</p>
+                        <input type="file" id="file-input" class="file-input" accept=".ipynb">
+                    </div>
+                    
+                    <div id="file-info" class="file-info" style="display: none;">
+                        <i class="fas fa-file-code file-icon"></i>
+                        <div class="file-details">
+                            <div id="file-name" class="file-name">filename.ipynb</div>
+                            <div id="file-size" class="file-size">123 KB</div>
+                        </div>
+                        <div class="file-actions">
+                            <button class="btn btn-outline" onclick="document.getElementById('file-input').click()">
+                                <i class="fas fa-sync-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div id="options-section" class="options-section" style="display: none;">
+                        <h3 class="option-title">Conversion Options</h3>
+                        
+                        <div class="option-group">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="include-cell-markers" class="option-input" checked>
+                                <label for="include-cell-markers">Include cell markers</label>
+                            </div>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="include-empty-lines" class="option-input" checked>
+                                <label for="include-empty-lines">Include empty lines</label>
+                            </div>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="add-comments" class="option-input">
+                                <label for="add-comments">Add descriptive comments</label>
+                            </div>
+                        </div>
+                        
+                        <button id="convert-btn" class="btn" disabled>Convert to Python</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="preview-section" class="preview-section" style="display: none;">
+                <div class="card">
+                    <h2 class="card-title">Python Code Preview</h2>
+                    <div id="code-preview" class="code-preview"></div>
+                    <div class="actions-bar">
+                        <button id="download-btn" class="btn" disabled>
+                            <i class="fas fa-download"></i> Download Python File
+                        </button>
+                        <div id="toggle-layout" class="toggle-layout">
+                            <i class="fas fa-columns toggle-icon"></i> Switch to Vertical Layout
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="loading" class="loading" style="display: none;">
+            <div class="spinner"></div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>IPYNB2PY Converter - Convert Jupyter Notebooks to Python files with ease</p>
+        </div>
+    </footer>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>

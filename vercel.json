@@ -3,9 +3,17 @@
     {
       "src": "api/main.py",
       "use": "@vercel/python"
+    },
+    {
+      "src": "api/static/**/*",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
+    {
+      "src": "/api/static/(.*)",
+      "dest": "/api/static/$1"
+    },
     {
       "src": "/(.*)",
       "dest": "api/main.py"
